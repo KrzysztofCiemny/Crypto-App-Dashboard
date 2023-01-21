@@ -25,7 +25,7 @@ export default defineComponent({
           <nav>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="group sidebar-link">
+                <a class="group sidebar-link cursor-pointer" @click="$router.push('/')">
                   <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -37,7 +37,7 @@ export default defineComponent({
                 </a>
               </li>
               <li>
-                <a href="#" class="group sidebar-link">
+                <a class="group sidebar-link cursor-pointer" @click="$router.push('/BuySell')">
                   <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -54,7 +54,7 @@ export default defineComponent({
                 </a>
               </li>
               <li>
-                <a href="#" class="group sidebar-link">
+                <a class="group sidebar-link cursor-pointer" @click="$router.push('/Wallets')">
                   <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -66,7 +66,7 @@ export default defineComponent({
                 </a>
               </li>
               <li>
-                <a href="#" class="group sidebar-link">
+                <a class="group sidebar-link cursor-pointer" @click="$router.push('/Bundles')">
                   <svg class="sidebar-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -75,7 +75,7 @@ export default defineComponent({
                 </a>
               </li>
               <li>
-                <a href="#" class="group sidebar-link">
+                <a class="group sidebar-link cursor-pointer" @click="$router.push('/Reporting')">
                   <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -88,7 +88,7 @@ export default defineComponent({
                 </a>
               </li>
               <li>
-                <a href="#" class="group sidebar-link">
+                <a class="group sidebar-link cursor-pointer" @click="$router.push('/Community')">
                   <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -136,8 +136,8 @@ export default defineComponent({
           </div>
         </div>
       </aside>
-      <div class="grow bg-white rounded-r-xl">
-        <header class="flex items-center border-gray-200 px-2 lg:px-16 pt-12 rounded-tr-xl grow max-h-32">
+      <div class="grow bg-white rounded-r-xl px-2 lg:px-16">
+        <header class="flex items-center  pt-12 rounded-tr-xl grow max-h-32">
           <div class="container flex flex-wrap items-center justify-between mx-auto">
             <div class="flex md:order-2">
               <div class="relative hidden md:block">
@@ -187,7 +187,7 @@ export default defineComponent({
             </nav>
           </div>
         </header>
-        <div class="flex items-center bg-white border-gray-200 px-2 lg:px-16 pt-6 rounded-tr-xl grow">
+        <div class="flex items-center justify-center bg-white border-gray-200 pt-8 rounded-tr-xl grow">
           <router-view v-slot="{ Component }">
             <suspense>
               <component :is="Component" />
