@@ -3,37 +3,37 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('../components/layouts/MainLayout.vue'),
+    component: () => import('../layouts/MainLayout.vue'),
     children: [
       {
         path: '/',
-        component: () => import('../components/pages/OverviewPage.vue'),
+        component: () => import('../pages/OverviewPage.vue'),
       },
       {
         path: '/BuySell',
-        component: () => import('../components/pages/BuySellPage.vue'),
+        component: () => import('../pages/BuySellPage.vue'),
       },
       {
         path: '/Wallets',
-        component: () => import('../components/pages/WalletsPage.vue'),
+        component: () => import('../pages/WalletsPage.vue'),
       },
       {
         path: '/Bundles',
-        component: () => import('../components/pages/BundlesPage.vue'),
+        component: () => import('../pages/BundlesPage.vue'),
       },
       {
         path: '/Reporting',
-        component: () => import('../components/pages/ReportingPage.vue'),
+        component: () => import('../pages/ReportingPage.vue'),
       },
       {
         path: '/Community',
-        component: () => import('../components/pages/CommunityPage.vue'),
+        component: () => import('../pages/CommunityPage.vue'),
       },
     ],
   },
   {
     path: '/:catchAll(.*)*',
-    component: () => import('../components/pages/ErrorNotFound.vue'),
+    component: () => import('../pages/ErrorNotFound.vue'),
   },
 ];
 
