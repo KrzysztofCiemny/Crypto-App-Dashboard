@@ -1,21 +1,3 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import SidebarComponent from "../components/SidebarComponent.vue";
-import HeaderComponent from "../components/HeaderComponent.vue";
-
-export default defineComponent({
-  name: 'MainLayout',
-  components: { SidebarComponent, HeaderComponent, },
-
-  setup() {
-
-    return {
-
-    }
-  }
-});
-</script>
-
 <template>
   <div class="flex justify-center items-center h-screen w-screen">
     <div class="flex h-full w-full max-w-[1440px] max-h-[900px]">
@@ -33,6 +15,24 @@ export default defineComponent({
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import SidebarComponent from "../components/SidebarComponent.vue";
+import HeaderComponent from "../components/HeaderComponent.vue";
+
+export default defineComponent({
+  name: 'MainLayout',
+  components: { SidebarComponent, HeaderComponent, },
+
+  setup() {
+
+    return {
+
+    }
+  }
+});
+</script>
 
 <style>
 
