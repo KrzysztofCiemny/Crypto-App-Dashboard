@@ -70,6 +70,7 @@
 import { defineComponent } from 'vue'
 import CardComponent from '../components/CardComponent.vue';
 import ButtonComponent from '../components/ButtonComponent.vue';
+import axios from 'axios'
 
 export default defineComponent({
   name: 'OverviewPage',
