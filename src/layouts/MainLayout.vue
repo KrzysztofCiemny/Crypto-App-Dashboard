@@ -4,7 +4,7 @@
       <sidebar-component />
       <div class="grow bg-white rounded-r-xl px-2 lg:px-16">
         <header-component />
-        <div class="flex items-center justify-center bg-white border-gray-200 pt-8 rounded-tr-xl grow">
+        <div class="flex items-center justify-center bg-white border-gray-200 pt-8 rounded-tr-xl grow h-fit">
           <router-view v-slot="{ Component }">
             <suspense>
               <component :is="Component" />

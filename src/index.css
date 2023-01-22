@@ -13,7 +13,7 @@ body {
       rounded-lg 
       border 
       border-gray-bg 
-      p-2 
+      p-[0.625rem] 
       text-base 
       font-medium
       text-gray-text  
@@ -27,5 +27,18 @@ body {
   }
   .sidebar-text {
     @apply ml-3 group-hover:text-black group-focus:text-black;
+  }
+  .tableTab {
+    @apply mr-6
+     inline-block 
+     cursor-pointer 
+     rounded-t-lg 
+     border-b-2 
+     border-transparent
+     pb-4 
+    hover:border-gray-300
+    hover:text-gray-text
+    focus:border-purple
+    focus:text-black;
   }
 }
