@@ -2,9 +2,9 @@
   <div class="flex justify-center items-center h-screen w-screen">
     <div class="flex h-full w-full max-w-[1440px] max-h-[900px]">
       <sidebar-component />
-      <div class="grow bg-white rounded-r-xl px-2 lg:px-16">
+      <div class="flex flex-col grow bg-white rounded-r-xl px-2 lg:px-16">
         <header-component />
-        <div class="flex items-center justify-center bg-white border-gray-200 pt-8 rounded-tr-xl grow h-fit">
+        <div class="flex grow items-center justify-center bg-white border-gray-200 pt-8 rounded-tr-xl">
           <router-view v-slot="{ Component }">
             <suspense>
               <component :is="Component" />

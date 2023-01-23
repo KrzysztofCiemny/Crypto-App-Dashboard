@@ -1,5 +1,5 @@
 <template>
-  <header class="flex items-center  pt-12 rounded-tr-xl grow max-h-32">
+  <header class="flex items-center pt-12 rounded-tr-xl max-h-24">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <div class="flex md:order-2">
         <div class="relative hidden md:block">
