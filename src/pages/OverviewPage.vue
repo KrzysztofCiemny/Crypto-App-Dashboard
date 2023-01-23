@@ -67,7 +67,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import CardComponent from '../components/CardComponent.vue';
 import ButtonComponent from '../components/ButtonComponent.vue';
 import axios from 'axios'
@@ -76,7 +76,21 @@ export default defineComponent({
   name: 'OverviewPage',
   components: { CardComponent, ButtonComponent },
   setup() {
+    const coinMarketData = ref()
 
+    axios.get('/api', {
+      headers: {
+        'X-CMC_PRO_API_KEY': 'cf03f1ca-7856-4e4d-967d-2e7240c27a9b',
+
+      }
+    })
+      .then(response => {
+        coinMarketData.value = response.data.data
+        console.log(coinMarketData)
+      })
+      .catch(error => {
+        console.log(error)
+      })
     return {
     }
   }
