@@ -1,10 +1,10 @@
 <template>
-  <div class="flex justify-center items-center h-screen w-screen">
-    <div class="flex h-full w-full max-w-[1440px] max-h-[900px]">
+  <div class="flex justify-center items-center h-screen w-screen bg-black">
+    <div class="relative flex h-full w-full max-w-[1440px] lg:max-h-[900px] md:overflow-hidden">
       <sidebar-component />
-      <div class="flex flex-col grow bg-white rounded-r-xl px-2 lg:px-16">
+      <div class="flex flex-col grow h-full bg-white lg:rounded-r-xl px-4 lg:px-16">
         <header-component />
-        <div class="flex grow items-center justify-center bg-white border-gray-200 pt-8 rounded-tr-xl">
+        <div class="flex justify-center bg-white border-gray-200 pt-8 rounded-tr-xl">
           <router-view v-slot="{ Component }">
             <suspense>
               <component :is="Component" />

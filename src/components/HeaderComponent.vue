@@ -1,6 +1,10 @@
 <template>
-  <header class="flex items-center pt-12 rounded-tr-xl max-h-24">
+  <header class="flex items-center pt-6 lg:pt-12 rounded-tr-xl max-h-24">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
+      <div class="flex items-center md:hidden">
+        <img class="pl-2" src="../../../LogoDots.svg" />
+        <span class="pl-2 text-dark-text text-2xl font-bold">Payte</span>
+      </div>
       <div class="flex md:order-2">
         <div class="relative hidden md:block">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -46,6 +50,103 @@
           </div>
         </button>
       </nav>
+    </div>
+    <div
+      class="fixed md:absolute top-0 right-0 z-10 h-screen overflow-y-auto transition-transform duration-500 bg-white w-full md:w-1/2"
+      tabindex="-1" :class="open ? 'transform-none' : 'translate-x-full'">
+      <button type="button" @click="open = !open"
+        class="text-gray-text bg-transparent rounded-lg text-sm p-1.5 absolute top-5 right-5 inline-flex items-center">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <span class="sr-only">Close menu</span>
+      </button>
+      <div class="flex flex-col justify-center items-center h-full px-3 py-20 overflow-y-auto rounded-l-xl bg-gray-bg">
+        <nav>
+          <ul class="gap-y-3">
+            <li>
+              <a class="group sidebar-link cursor-pointer" @click="$router.push('/'), open = !open">
+                <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                </svg>
+                <span class="sidebar-text">Overview</span>
+              </a>
+            </li>
+            <li>
+              <a class="group sidebar-link cursor-pointer" @click="$router.push('/BuySell'), open = !open">
+                <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <line x1="3" y1="21" x2="21" y2="21" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                  <polyline points="5 6 12 3 19 6" />
+                  <line x1="4" y1="10" x2="4" y2="21" />
+                  <line x1="20" y1="10" x2="20" y2="21" />
+                  <line x1="8" y1="14" x2="8" y2="17" />
+                  <line x1="12" y1="14" x2="12" y2="17" />
+                  <line x1="16" y1="14" x2="16" y2="17" />
+                </svg>
+                <span class="sidebar-text">Buy / Sell</span>
+              </a>
+            </li>
+            <li>
+              <a class="group sidebar-link cursor-pointer" @click="$router.push('/Wallets'), open = !open">
+                <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <path
+                    d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
+                  <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
+                </svg>
+                <span class="sidebar-text">Wallets</span>
+              </a>
+            </li>
+            <li>
+              <a class="group sidebar-link cursor-pointer" @click="$router.push('/Bundles'), open = !open">
+                <svg class="sidebar-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+                <span class="sidebar-text">Bundles</span>
+              </a>
+            </li>
+            <li>
+              <a class="group sidebar-link cursor-pointer" @click="$router.push('/Reporting'), open = !open">
+                <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <line x1="5" y1="5" x2="5" y2="21" />
+                  <line x1="19" y1="5" x2="19" y2="14" />
+                  <path d="M5 5a5 5 0 0 1 7 0a5 5 0 0 0 7 0" />
+                  <path d="M5 14a5 5 0 0 1 7 0a5 5 0 0 0 7 0" />
+                </svg>
+                <span class="sidebar-text">Reporting</span>
+              </a>
+            </li>
+            <li>
+              <a class="group sidebar-link cursor-pointer" @click="$router.push('/Community'), open = !open">
+                <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <line x1="12" y1="12" x2="12" y2="12.01" />
+                  <path d="M12 2a4 10 0 0 0 -4 10a4 10 0 0 0 4 10a4 10 0 0 0 4 -10a4 10 0 0 0 -4 -10"
+                    transform="rotate(45 12 12)" />
+                  <path d="M12 2a4 10 0 0 0 -4 10a4 10 0 0 0 4 10a4 10 0 0 0 4 -10a4 10 0 0 0 -4 -10"
+                    transform="rotate(-45 12 12)" />
+                </svg>
+                <span class="sidebar-text">Community</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 </template>

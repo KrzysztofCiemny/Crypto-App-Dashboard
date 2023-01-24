@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #1e1e1e;
+  margin: 0;
 }
 
 @layer components {
@@ -13,24 +13,27 @@ body {
       rounded-lg 
       border 
       border-gray-bg 
-      p-[0.625rem] 
-      text-base 
-      font-medium
-      text-gray-text  
-      hover:border-gray-200 
-      hover:bg-white 
+      p-[0.625rem]
+      text-sm
+      font-medium 
+      text-gray-text 
+      hover:border-gray-200
+      hover:bg-white  
       focus:border-gray-200 
-      focus:bg-white;
+      focus:bg-white 
+      active:border-gray-200 
+      active:bg-white 
+      lg:text-base 
+      xl:mb-1;
   }
   .sidebar-icon {
-    @apply h-6 w-6 group-hover:text-purple group-focus:text-purple;
+    @apply h-5 w-5 group-hover:text-purple group-focus:text-purple group-active:text-purple lg:h-6 lg:w-6;
   }
   .sidebar-text {
-    @apply ml-3 group-hover:text-black group-focus:text-black;
+    @apply ml-3 group-hover:text-black group-focus:text-black group-active:text-black;
   }
   .tableTab {
-    @apply mr-6
-     inline-block 
+    @apply inline-block 
      cursor-pointer 
      rounded-t-lg 
      border-b-2 

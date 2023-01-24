@@ -1,14 +1,14 @@
 <template>
-  <aside class="w-64 h-full" aria-label="Sidebar">
-    <div class="flex flex-col h-full px-3 py-4 overflow-y-auto rounded-l-xl bg-gray-bg">
+  <aside class="w-44 lg:w-64 h-full hidden md:block" aria-label="Sidebar">
+    <div class="flex flex-col h-full px-3 py-4 overflow-y-auto lg:rounded-l-xl bg-gray-bg">
       <div class="flex items-center pt-6 pb-16">
         <img class="pl-2" src="../../../LogoDots.svg" />
         <span class="pl-2 text-dark-text text-2xl font-bold">Payte</span>
       </div>
       <nav>
-        <ul class="space-y-[0.75rem]">
+        <ul>
           <li>
-            <a href="#" class="group sidebar-link cursor-pointer" @click="$router.push('/')">
+            <a href="javascript:void(0)" class="group sidebar-link cursor-pointer" @click="$router.push('/')">
               <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -20,7 +20,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="group sidebar-link cursor-pointer" @click="$router.push('/BuySell')">
+            <a href="javascript:void(0)" class="group sidebar-link cursor-pointer" @click="$router.push('/BuySell')">
               <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -37,7 +37,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="group sidebar-link cursor-pointer" @click="$router.push('/Wallets')">
+            <a href="javascript:void(0)" class="group sidebar-link cursor-pointer" @click="$router.push('/Wallets')">
               <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -49,7 +49,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="group sidebar-link cursor-pointer" @click="$router.push('/Bundles')">
+            <a href="javascript:void(0)" class="group sidebar-link cursor-pointer" @click="$router.push('/Bundles')">
               <svg class="sidebar-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -58,7 +58,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="group sidebar-link cursor-pointer" @click="$router.push('/Reporting')">
+            <a href="javascript:void(0)" class="group sidebar-link cursor-pointer" @click="$router.push('/Reporting')">
               <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -71,7 +71,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="group sidebar-link cursor-pointer" @click="$router.push('/Community')">
+            <a href="javascript:void(0)" class="group sidebar-link cursor-pointer" @click="$router.push('/Community')">
               <svg class="sidebar-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -103,7 +103,7 @@
         <div class="flex justify-between items-center pl-2 py-2 text-gray-text">
           <div class="flex">
             <img class="pr-2" src="../../../Marc.png" />
-            <div>
+            <div class="hidden lg:block">
               <span class="flex text-black text-sm font-semibold">Marc Webber</span>
               <span class="text-sm">marc@riot.com</span>
             </div>
