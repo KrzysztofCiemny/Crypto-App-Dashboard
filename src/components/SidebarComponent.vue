@@ -106,8 +106,8 @@
                 <div class="text-xs text-black">{{ coin.name }}</div>
               </div>
               <div class="flex-col justify-center hidden md:block">
-                <img v-if="coin.change > 0" src="../.././public/favoGraphGreen.webp" />
-                <img v-if="coin.change < 0" src="../.././public/favoGraphRed.webp" />
+                <img v-if="coin.change > 0" src="../.././favoGraphGreen.webp" />
+                <img v-if="coin.change < 0" src="../.././favoGraphRed.webp" />
               </div>
             </div>
           </div>
@@ -152,7 +152,6 @@ export default defineComponent({
             symbol: coin.symbol
           }
         }
-        console.log(favouriteCoins)
       }))
 
     return {

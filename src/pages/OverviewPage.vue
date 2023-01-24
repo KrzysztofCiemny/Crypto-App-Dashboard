@@ -66,6 +66,7 @@
           </li>
           <li>
             <a href="#" class="tableTab" @click="selectedId = 5">Analysis</a>
+            <CryptoIcon name="btc" :size="35" />
           </li>
         </ul>
       </div>
