@@ -1,7 +1,7 @@
 <template>
   <aside class="w-44 lg:w-64 h-full hidden md:block" aria-label="Sidebar">
     <div class="flex flex-col h-full px-3 py-4 overflow-y-auto lg:rounded-l-xl bg-gray-bg">
-      <div class="flex items-center pt-6 pb-16">
+      <div class="flex items-center pt-3 lg:pt-6 pb-7 lg:pb-16">
         <img class="pl-2" src="../../../LogoDots.svg" />
         <span class="pl-2 text-dark-text text-2xl font-bold">Payte</span>
       </div>
@@ -99,6 +99,18 @@
               <circle cx="19" cy="12" r="1" />
             </svg>
           </div>
+          <div class="flex flex-col mt-3 lg:mt-6 px-2">
+            <div v-for="coin in favouriteCoins" class="flex justify-between items-center">
+              <div class="flex-col justify-center">
+                <div class="text-xs text-gray-text">{{ coin.symbol }}</div>
+                <div class="text-xs text-black">{{ coin.name }}</div>
+              </div>
+              <div class="flex-col justify-center hidden md:block">
+                <img v-if="coin.change > 0" src="../.././public/favoGraphGreen.webp" />
+                <img v-if="coin.change < 0" src="../.././public/favoGraphRed.webp" />
+              </div>
+            </div>
+          </div>
         </div>
         <div class="flex justify-between items-center pl-2 py-2 text-gray-text">
           <div class="flex">
@@ -122,13 +134,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref, onMounted, watch } from 'vue'
+import useCoinMarketApi from '../composables/useCoinMarketApi'
+import { ResultsDto } from '../models/models'
 
 export default defineComponent({
   name: 'SidebarComponent',
   setup() {
+    const { coinMarketData } = useCoinMarketApi()
 
-    return {}
+    const favouriteCoins = ref<ResultsDto[]>()
+    watch(() => coinMarketData.value,
+      (newVal) => favouriteCoins.value = newVal?.filter(coin => {
+        if (coin.symbol == 'BTC' || coin.symbol == 'XRP') {
+          return {
+            name: coin.name,
+            symbol: coin.symbol
+          }
+        }
+        console.log(favouriteCoins)
+      }))
+
+    return {
+      coinMarketData,
+      favouriteCoins,
+
+    }
   }
 })
 </script>
