@@ -71,7 +71,7 @@
       </div>
       <div v-if="selectedId == 1"
         class="mt-4 lg:mt-8 overflow-y-auto max-h-[300px] md:max-h-[145px] lg:max-h-[200px] xl:max-h-[280px]">
-        <div v-for="coin in coinMarketData" :key="coin.id"
+        <div v-for="coin in coinMarketData" :key="coin.name"
           class="flex justify-between items-center border border-gray-200 rounded-lg bg-white p-3 mb-2">
           <div class="flex-col justify-center">
             <div class="text-sm text-gray-text">{{ coin.symbol }}</div>
@@ -79,16 +79,14 @@
           </div>
           <div class="flex-col justify-center">
             <div class="text-sm text-gray-text">Price</div>
-            <div class="text-sm text-black">${{ + (coin.quote.USD.price).toFixed(2) }}</div>
+            <div class="text-sm text-black">${{ + (coin.price).toFixed(2) }}</div>
           </div>
           <div class="flex-col justify-center">
             <span class="text-sm text-gray-text">Change</span>
-            <span class="flex items-center text-sm"
-              :class="coin.quote.USD.volume_change_24h > 0 ? 'text-green' : 'text-red'">
-              <span class="mr-1">{{ + (coin.quote.USD.volume_change_24h).toFixed(2) }}%</span>
-              <svg v-if="coin.quote.USD.volume_change_24h > 0" class="h-4 w-4 hidden md:block" width="24" height="24"
-                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
+            <span class="flex items-center text-sm" :class="coin.change > 0 ? 'text-green' : 'text-red'">
+              <span class="mr-1">{{ + (coin.change).toFixed(2) }}%</span>
+              <svg v-if="coin.change > 0" class="h-4 w-4 hidden md:block" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <circle cx="12" cy="12" r="9" />
                 <line x1="15" y1="9" x2="9" y2="15" />
@@ -127,6 +125,7 @@ import CardComponent from '../components/CardComponent.vue';
 import ButtonComponent from '../components/ButtonComponent.vue';
 import axios from 'axios'
 import VueApexCharts from 'vue3-apexcharts';
+import { ResultsDto, ResponseBody } from '../models/models'
 
 export default defineComponent({
   name: 'OverviewPage',
@@ -136,8 +135,9 @@ export default defineComponent({
     apexchart: VueApexCharts,
   },
   setup() {
-    const coinMarketData = ref()
+    const coinMarketData = ref<ResultsDto[]>()
     const selectedId = ref(1)
+
 
     axios.get('/api', {
       headers: {
@@ -145,8 +145,14 @@ export default defineComponent({
       }
     })
       .then(response => {
-        coinMarketData.value = response.data.data
-        console.log(coinMarketData)
+        coinMarketData.value = response.data.data.map((item: ResponseBody) => {
+          return {
+            name: item.name,
+            symbol: item.symbol,
+            price: item.quote.USD.price,
+            change: item.quote.USD.volume_change_24h,
+          }
+        })
       })
       .catch(error => {
         console.log(error)
