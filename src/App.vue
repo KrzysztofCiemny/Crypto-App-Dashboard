@@ -3,10 +3,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+import useCoinMarketApi from './composables/useCoinMarketApi';
 
 export default defineComponent({
   name: 'App',
+
+  setup() {
+    const { getcoinMarketData } = useCoinMarketApi()
+
+    onMounted(getcoinMarketData)
+    return {}
+  }
 });
 
 </script>

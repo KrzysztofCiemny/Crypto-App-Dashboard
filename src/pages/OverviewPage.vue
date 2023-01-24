@@ -73,15 +73,15 @@
         class="mt-4 lg:mt-8 overflow-y-auto max-h-[300px] md:max-h-[145px] lg:max-h-[200px] xl:max-h-[280px]">
         <div v-for="coin in coinMarketData" :key="coin.name"
           class="flex justify-between items-center border border-gray-200 rounded-lg bg-white p-3 mb-2">
-          <div class="flex-col justify-center">
+          <div class="flex-col justify-center md:w-[20%]">
             <div class="text-sm text-gray-text">{{ coin.symbol }}</div>
             <div class="text-sm text-black hidden md:block">{{ coin.name }}</div>
           </div>
-          <div class="flex-col justify-center">
+          <div class="flex-col justify-center md:w-[20%]">
             <div class="text-sm text-gray-text">Price</div>
             <div class="text-sm text-black">${{ + (coin.price).toFixed(2) }}</div>
           </div>
-          <div class="flex-col justify-center">
+          <div class="flex-col justify-center md:w-[20%]">
             <span class="text-sm text-gray-text">Change</span>
             <span class="flex items-center text-sm" :class="coin.change > 0 ? 'text-green' : 'text-red'">
               <span class="mr-1">{{ + (coin.change).toFixed(2) }}%</span>
@@ -101,12 +101,13 @@
               </svg>
             </span>
           </div>
-          <div class="flex-col justify-center hidden md:block">
-
+          <div class="flex-col justify-center hidden md:block md:w-[20%]">
+            <img v-if="coin.change > 0" src="../.././public/graphGreen.webp" />
+            <img v-if="coin.change < 0" src="../.././public/graphRed.webp" />
           </div>
-          <div class="flex-col justify-center items-center gap-1">
+          <div class="flex justify-end items-center md:w-[20%]">
             <button-component>Sell</button-component>
-            <button-component isPurple>Buy</button-component>
+            <button-component isPurple class="ml-0.5 md:ml-2">Buy</button-component>
           </div>
         </div>
       </div>
@@ -123,9 +124,8 @@
 import { defineComponent, ref } from 'vue'
 import CardComponent from '../components/CardComponent.vue';
 import ButtonComponent from '../components/ButtonComponent.vue';
-import axios from 'axios'
 import VueApexCharts from 'vue3-apexcharts';
-import { ResultsDto, ResponseBody } from '../models/models'
+import useCoinMarketApi from '../composables/useCoinMarketApi'
 
 export default defineComponent({
   name: 'OverviewPage',
@@ -135,28 +135,8 @@ export default defineComponent({
     apexchart: VueApexCharts,
   },
   setup() {
-    const coinMarketData = ref<ResultsDto[]>()
     const selectedId = ref(1)
-
-
-    axios.get('/api', {
-      headers: {
-        'X-CMC_PRO_API_KEY': 'cf03f1ca-7856-4e4d-967d-2e7240c27a9b',
-      }
-    })
-      .then(response => {
-        coinMarketData.value = response.data.data.map((item: ResponseBody) => {
-          return {
-            name: item.name,
-            symbol: item.symbol,
-            price: item.quote.USD.price,
-            change: item.quote.USD.volume_change_24h,
-          }
-        })
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    const { coinMarketData } = useCoinMarketApi()
 
     const summaryOptions = {
       chart: {
@@ -226,11 +206,12 @@ export default defineComponent({
         data: [30, 40, 20, 50, 70, 10, 40, 100, 120],
       },
     ])
+
     return {
-      coinMarketData,
       selectedId,
       summaryOptions,
-      summarySeries
+      summarySeries,
+      coinMarketData
     }
   }
 })
