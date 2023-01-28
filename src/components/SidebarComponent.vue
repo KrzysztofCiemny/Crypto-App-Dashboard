@@ -2,7 +2,7 @@
   <aside class="w-44 lg:w-64 h-full hidden md:block" aria-label="Sidebar">
     <div class="flex flex-col h-full px-3 py-4 overflow-y-auto lg:rounded-l-xl bg-gray-bg">
       <div class="flex items-center pt-3 lg:pt-6 pb-7 lg:pb-16">
-        <img class="pl-2" src="../../../LogoDots.svg" />
+        <img class="pl-2" src="/LogoDots.svg" />
         <span class="pl-2 text-dark-text text-2xl font-bold">Payte</span>
       </div>
       <nav>
@@ -106,15 +106,15 @@
                 <div class="text-xs text-black">{{ coin.name }}</div>
               </div>
               <div class="flex-col justify-center hidden md:block">
-                <img v-if="coin.change > 0" src="../.././favoGraphGreen.webp" />
-                <img v-if="coin.change < 0" src="../.././favoGraphRed.webp" />
+                <img v-if="coin.change > 0" src="/favoGraphGreen.webp" />
+                <img v-if="coin.change < 0" src="/favoGraphRed.webp" />
               </div>
             </div>
           </div>
         </div>
         <div class="flex justify-between items-center pl-2 py-2 text-gray-text">
           <div class="flex">
-            <img class="pr-2" src="../../../Marc.png" />
+            <img class="pr-2" src="/Marc.png" />
             <div class="hidden lg:block">
               <span class="flex text-black text-sm font-semibold">Marc Webber</span>
               <span class="text-sm">marc@riot.com</span>

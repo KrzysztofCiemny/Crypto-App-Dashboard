@@ -2,7 +2,7 @@
   <header class="flex items-center pt-6 lg:pt-12 rounded-tr-xl max-h-24">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <div class="flex items-center md:hidden">
-        <img class="pl-2" src="../../../LogoDots.svg" />
+        <img class="pl-2" src="/LogoDots.svg" />
         <span class="pl-2 text-dark-text text-2xl font-bold">Payte</span>
       </div>
       <div class="flex md:order-2">

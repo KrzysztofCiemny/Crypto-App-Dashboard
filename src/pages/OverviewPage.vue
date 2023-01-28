@@ -66,7 +66,6 @@
           </li>
           <li>
             <a href="#" class="tableTab" @click="selectedId = 5">Analysis</a>
-            <CryptoIcon name="btc" :size="35" />
           </li>
         </ul>
       </div>
@@ -103,8 +102,8 @@
             </span>
           </div>
           <div class="flex-col justify-center hidden md:block md:w-[20%]">
-            <img v-if="coin.change > 0" src="../.././public/graphGreen.webp" />
-            <img v-if="coin.change < 0" src="../.././public/graphRed.webp" />
+            <img v-if="coin.change > 0" src="/graphGreen.webp" />
+            <img v-if="coin.change < 0" src="/graphRed.webp" />
           </div>
           <div class="flex justify-end items-center md:w-[20%]">
             <button-component>Sell</button-component>
