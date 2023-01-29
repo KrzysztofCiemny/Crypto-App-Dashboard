@@ -1,3 +1,3 @@
-/api/_ https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest/:splat 200
+/api/_ https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=cf03f1ca-7856-4e4d-967d-2e7240c27a9b/:splat 200
 /_ /index.html 200
 /\* /index.html 404
